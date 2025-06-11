@@ -10,11 +10,15 @@ import reset from "styled-reset";
 import {useEffect, useState} from "react";
 import LoadingScreen from "./components/loading-screen.tsx";
 import {auth} from "./routes/firebase.ts";
+import ProtectedRoute from "./routes/protected-route.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
+    element: (
+        <ProtectedRoute>
+          <Layout/>
+        </ProtectedRoute>),
     children: [
       {
         path: "",
@@ -62,11 +66,10 @@ function App() {
   const [isLoading, setLoading] = useState(true);
   const init = async () => {
     await auth.authStateReady()
-    setTimeout(() => setLoading(false), 500);
+    setTimeout(() => setLoading(false), 0);
   };
-
   useEffect(() => {
-    init();
+    init().then(r => console.log(r));
   }, []);
 
   return <>
