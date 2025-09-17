@@ -66,10 +66,11 @@ function App() {
   const [isLoading, setLoading] = useState(true);
   const init = async () => {
     await auth.authStateReady()
-    setTimeout(() => setLoading(false), 0);
+    setLoading(false); // 이게 여기 있으면 로그인 후 새로고침 해도 그대로 유지.
   };
   useEffect(() => {
     init().then(r => console.log(r));
+    // setLoading(false);
   }, []);
 
   return <>
