@@ -4,6 +4,7 @@ import {createUserWithEmailAndPassword} from "firebase/auth";
 import {Link, useNavigate} from "react-router-dom";
 import {FirebaseError} from "firebase/app";
 import {Form, Input, Switcher, Title, Wrapper, Error} from "../components/auth-components.ts";
+import GithubButton from "../components/github-btn.tsx";
 
 export default function CreateAccount() {
   const navigate = useNavigate();
@@ -57,5 +58,6 @@ export default function CreateAccount() {
       계정이 있으신가요? &nbsp;
       <Link to="/login">로그인하러 가기 &rarr;</Link>
     </Switcher>
+    <GithubButton/>
   </Wrapper>;
 };
