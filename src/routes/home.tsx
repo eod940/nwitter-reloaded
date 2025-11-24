@@ -1,6 +1,7 @@
 import {auth} from "./firebase.ts";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
+import LoginInfo from "../components/login-info.tsx";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ export default function Home() {
     return () => unsubscribe();
   }, [navigate])
   return (
-      <h1>R
+      <h1>
+        <LoginInfo/>
         <button onClick={logOut}>Logout</button>
       </h1>
   );
