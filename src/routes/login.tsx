@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "./firebase.ts";
 import {Form, Input, Switcher, Title, Wrapper, Error} from "../components/auth-components.ts";
 import GithubButton from "../components/github-btn.tsx";
+import * as React from "react";
 
 export default function CreateAccount() {
   const navigate = useNavigate();
